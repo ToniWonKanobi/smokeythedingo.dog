@@ -6,7 +6,7 @@
   "author": "Anthony Craig <anthonycraig@me.com>",
   "license": "MIT",
   "dependencies": {
-    "markdown-it": "^8.4.1",
+    "jstransformer-markdown-it": "^2.0.0",
     "markdown-it-implicit-figures": "^0.6.0"
   }
 }
