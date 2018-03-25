@@ -1,0 +1,12 @@
+{
+  "name": "smokeythedingo.dog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ToniWonKanobi/smokeythedingo.dog.git",
+  "author": "Anthony Craig <anthonycraig@me.com>",
+  "license": "MIT",
+  "dependencies": {
+    "markdown-it": "^8.4.1",
+    "markdown-it-implicit-figures": "^0.6.0"
+  }
+}
