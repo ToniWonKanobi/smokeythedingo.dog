@@ -1,0 +1,39 @@
+doctype
+html.toni
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="description" content="This is the website for the best dog in the world, Smokey")
+    title Smokey
+    link(rel="index" href="/" title="Smokey")
+    link(rel="shortcut icon" href="/media/favicon.png")
+    link(rel="apple-touch-icon-precomposed" href="/media/favicon-square" title="Site Favicon")
+    link(rel="mask-icon" href="/media/favicon.svg" color="#656565" title="Safari Pinned Tabs Icon")
+
+    //- Open Graph and Twitter Cards
+    meta(property="og:locale" content="en_US")
+    meta(property="og:site_name" content="Smokey")
+    meta(property="og:type" content="website")
+    meta(property="og:title" content="Smokey")
+    meta(property="og:description" content="This is the website for the best dog in the world, Smokey")
+    meta(property="og:image" content="/media/profile.jpg")
+    meta(name="twitter:site" content="@smokeythedingo")
+    meta(name="twitter:creator" content="@toniwonkanobi")
+    meta(name="twitter:title" content="Smokey")
+    meta(name="twitter:card" content="summary")
+    meta(name="twitter:description" content="This is the website for the best dog in the world, Smokey")
+    meta(name="twitter:image" content="/media/favicon.png")
+
+    //- Stylesheets
+    link(rel="stylesheet" type="text/css" href="styles.css")
+  body
+    .container
+      header
+        h1.title This is the website for the best dog in the world, Smokey
+      main
+        .content
+          //- Begin contents of the compiled his-story.md
+          include:markdown-it(html plugins=['markdown-it-implicit-figures']) his-story.md
+          //- End contents of the compiled his-story.md
+      footer
+        p.copyright Copyright © 2009–❤️ <a href="http://anthonycraig.me" title="Link to the author's website">Anthony Craig</a>

@@ -1,0 +1,135 @@
+// Variables
+$darkGray: darken(gray, 30%)
+$darkerGray: darken(gray, 40%)
+$shadow: darken(gray, 45%)
+$white: darken(white, 5%)
+$borderRadius: 0.25em
+$linkHover: darken(gray, 20%)
+%fontStack
+  font-family: Avenir Next, sans-serif
+  font-weight: 600
+  font-size: 1.5em
+  color: $white
+%readersWillThankMe
+  padding: 1.5em
+  max-width: 650px
+  margin: auto
+
+// Lazy resets
+html, body, figure
+  margin: 0
+  padding: 0
+
+// Fun
+*
+  transition: all 0.25s ease-in-out
+
+body
+  @extend %fontStack
+  background: $darkerGray
+  text-align: center
+
+a
+  color: inherit
+  text-decoration: none
+
+  &:hover, &:active
+    background: $linkHover
+
+header
+  display: flex
+  justify-content: center
+  align-items: center
+  min-height: 100vh
+  // This is just a temporary hack
+  margin-top: -0.5em
+
+.title
+  text-align: center
+  text-transform: uppercase
+  font-style: italic
+
+h1
+  font-weight: 900
+  font-size: 250%
+  margin-top: 0
+
+
+h1, p, hr, img
+  &:hover, &:active
+    transform: translate(0.1em, 0.1em)
+    transform: scale(1.02)
+
+.container
+  min-height: 100vh
+  @extend %readersWillThankMe
+  // I just learned about this two weeks ago. It's so amazing.
+  box-sizing: border-box
+  border-right: 1em solid $white
+  border-left: 1em solid $white
+
+  &:hover, &:active
+    background: $darkGray
+    box-shadow: 3px 3px 5px 5px $shadow
+
+// Sort of like a less powerful `*` selector, this makes all of the elements 100vh. For more of an "app" experience
+p:not(.copyright), figure, hr
+  min-height: 100vh
+
+img, video
+  border: solid 1em $white
+  box-sizing: border-box
+  // Necessary
+  max-width: 100%
+  // Okay, so this is me making it so that the figcaption can be hidden "behind" the image
+  z-index: 2
+  // Necessary for the z-index stuff
+  position: relative
+  filter: grayscale(100%)
+
+  &:hover, &:active
+    box-shadow: 3px 3px 5px 5px darken(gray, 32%)
+    filter: none
+
+// So, when I hover on the img, make the figcaption go back to its normal position
+img:hover + figcaption, video:hover + figcaption
+  // I tried `initial`, but it wasn't enough all the time
+  margin-top: 0.25em
+
+figcaption
+  // Not sure if this is good or not
+  // Nah, since they're all emoji's
+  // font-style: italic
+  font-size: 0.85em
+  color: darken(white, 50%)
+  padding: 0.25em
+  margin-top: -2em
+  // I noticed that the figcaption was showing up on a few images when not hovered. This moves it out of the way
+  margin-left: 0.5em
+  z-index: 1
+  // Necessary for the z-index stuff
+  position: relative
+
+hr
+  border: none
+  text-align: center
+  letter-spacing: 0.25em
+  font-size: 300%
+
+  &::after
+    content: '***'
+
+footer
+  font-size: 0.7em
+  text-align: center
+
+@media all and (max-width: 600px)
+  h1
+    font-size: 1.75em
+
+  .container
+    border-right: initial
+    border-left: initial
+
+    &:hover, &:active
+      box-shadow: initial
